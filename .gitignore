@@ -209,6 +209,7 @@ tempCodeRunnerFile.py
 /.local/
 
 # Chainlit local state and generated artifacts
+.chainlit/
 /src/.chainlit/
 /src/.files/
 

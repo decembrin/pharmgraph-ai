@@ -1,6 +1,18 @@
 import json
 
-from pharmgraph_ai.ui.tool_presenter import _tool_title, format_result
+from pharmgraph_ai.ui.tool_presenter import (
+    _safe_step_name,
+    _tool_title,
+    format_result,
+)
+
+
+def test_step_name_is_safe_for_chainlit_avatar_route():
+    title = "Retrieving drug profile: Eliquis — 00078-0699-44 (tablet/capsule)"
+
+    assert _safe_step_name(title) == (
+        "Retrieving drug profile Eliquis 00078-0699-44 tablet capsule"
+    )
 
 
 def test_search_title_includes_name_and_dosage_form():
@@ -61,11 +73,48 @@ def test_empty_search_result_has_no_product_list():
 def test_profile_title_uses_known_product_name_and_key():
     raw_item = {"arguments": json.dumps({"product_key": "00078-0699-44"})}
 
-    assert _tool_title(
-        "get_drug_profile",
-        raw_item,
-        {"00078-0699-44": "Eliquis"},
-    ) == "Retrieving drug profile: Eliquis — 00078-0699-44"
+    assert (
+        _tool_title(
+            "get_drug_profile",
+            raw_item,
+            {"00078-0699-44": "Eliquis"},
+        )
+        == "Retrieving drug profile: Eliquis — 00078-0699-44"
+    )
+
+
+def test_interaction_title_uses_known_ingredient_names():
+    raw_item = {
+        "arguments": json.dumps(
+            {
+                "ingredient_keys": ["ingredient-apixaban", "ingredient-aspirin"],
+            }
+        )
+    }
+
+    assert (
+        _tool_title(
+            "find_documented_interactions",
+            raw_item,
+            ingredient_names={
+                "ingredient-apixaban": "Apixaban",
+                "ingredient-aspirin": "Aspirin",
+            },
+        )
+        == "Checking drug interactions: Apixaban and Aspirin"
+    )
+
+
+def test_interaction_title_falls_back_to_ingredient_keys():
+    raw_item = {
+        "arguments": {
+            "ingredient_keys": ["ingredient-apixaban", "ingredient-aspirin"],
+        }
+    }
+
+    assert _tool_title("find_documented_interactions", raw_item) == (
+        "Checking drug interactions: ingredient-apixaban and ingredient-aspirin"
+    )
 
 
 def test_profile_result_shows_only_first_three_ingredients():

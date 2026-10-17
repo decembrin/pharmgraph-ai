@@ -1,5 +1,6 @@
 import json
 import logging
+import re
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from typing import Any
@@ -12,6 +13,7 @@ logger.setLevel(logging.INFO)
 
 MAX_LOG_ARGUMENT_CHARS = 2000
 MAX_SEARCH_RESULTS_SHOWN = 3
+MAX_STEP_NAME_CHARS = 120
 
 TOOL_TITLES = {
     "search_drugs": "Searching for drugs",
@@ -98,10 +100,21 @@ def _display_text(value: Any) -> str | None:
     return value
 
 
+def _safe_step_name(title: str) -> str:
+    safe_title = re.sub(r"[^a-zA-Z0-9_ .-]+", " ", title)
+    safe_title = " ".join(safe_title.split())
+
+    if not safe_title:
+        return "Investigating the knowledge graph"
+
+    return safe_title[:MAX_STEP_NAME_CHARS].rstrip()
+
+
 def _tool_title(
     tool_name: str,
     raw_item: Any,
     product_names: Mapping[str, str] | None = None,
+    ingredient_names: Mapping[str, str] | None = None,
 ) -> str:
     title = TOOL_TITLES.get(
         tool_name,
@@ -135,6 +148,29 @@ def _tool_title(
         )
 
         return f"{title}: {profile_description}"
+
+    if tool_name == "find_documented_interactions":
+        ingredient_keys = arguments.get("ingredient_keys")
+
+        if not isinstance(ingredient_keys, (list, tuple)):
+            return title
+
+        ingredients = []
+
+        for ingredient_key in ingredient_keys:
+            ingredient_key = _display_text(ingredient_key)
+
+            if ingredient_key is None:
+                continue
+
+            ingredients.append(
+                (ingredient_names or {}).get(ingredient_key, ingredient_key)
+            )
+
+        if not ingredients:
+            return title
+
+        return f"{title}: {' and '.join(ingredients)}"
 
     return title
 
@@ -280,6 +316,7 @@ class LiveToolPresenter:
     steps: dict[str, cl.Step] = field(default_factory=dict)
     tool_names: dict[str, str] = field(default_factory=dict)
     product_names: dict[str, str] = field(default_factory=dict)
+    ingredient_names: dict[str, str] = field(default_factory=dict)
 
     async def on_tool_called(self, item: ToolCallItem) -> None:
         call_id = item.call_id
@@ -297,10 +334,15 @@ class LiveToolPresenter:
             arguments,
         )
 
-        title = _tool_title(tool_name, item.raw_item, self.product_names)
+        title = _tool_title(
+            tool_name,
+            item.raw_item,
+            self.product_names,
+            self.ingredient_names,
+        )
 
         step = cl.Step(
-            name=title,
+            name=_safe_step_name(title),
             type="tool",
             show_input=False,
             default_open=False,
@@ -347,6 +389,29 @@ class LiveToolPresenter:
 
                 if product_key and product_name:
                     self.product_names[product_key] = product_name
+
+        elif tool_name == "get_drug_profile":
+            data = _parse_output(item.output)
+            product = data.get("product") if isinstance(data, Mapping) else None
+            composition = (
+                product.get("composition") if isinstance(product, Mapping) else None
+            )
+
+            if isinstance(composition, (list, tuple)):
+                for item_composition in composition:
+                    if not isinstance(item_composition, Mapping):
+                        continue
+
+                    ingredient = item_composition.get("ingredient")
+
+                    if not isinstance(ingredient, Mapping):
+                        continue
+
+                    ingredient_key = _display_text(ingredient.get("key"))
+                    ingredient_name = _display_text(ingredient.get("name"))
+
+                    if ingredient_key and ingredient_name:
+                        self.ingredient_names[ingredient_key] = ingredient_name
 
         logger.info(
             "Tool call completed: tool=%s call_id=%s result=%s",

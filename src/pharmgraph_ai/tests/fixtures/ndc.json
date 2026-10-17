@@ -1,0 +1,812 @@
+{
+    "meta": {
+        "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+        "terms": "https://open.fda.gov/terms/",
+        "license": "https://open.fda.gov/license/",
+        "last_updated": "2026-10-14",
+        "results": {
+            "skip": 0,
+            "limit": 15,
+            "total": 13
+        }
+    },
+    "results": [
+        {
+            "product_ndc": "0003-0893",
+            "generic_name": "apixaban",
+            "labeler_name": "E.R. Squibb & Sons, L.L.C.",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "2.5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "0003-0893-21",
+                    "description": "60 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (0003-0893-21)",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "0003-0893-31",
+                    "description": "10 BLISTER PACK in 1 CARTON (0003-0893-31)  / 10 TABLET, FILM COATED in 1 BLISTER PACK",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "0003-0893-91",
+                    "description": "1 BLISTER PACK in 1 CARTON (0003-0893-91)  / 14 TABLET, FILM COATED in 1 BLISTER PACK",
+                    "marketing_start_date": "20121228",
+                    "sample": true
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {},
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "663be5ea-b58d-43c9-8138-2d9ed0846308",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "0003-0893_663be5ea-b58d-43c9-8138-2d9ed0846308",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "50090-1437",
+            "generic_name": "apixaban",
+            "labeler_name": "A-S Medication Solutions",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "50090-1437-0",
+                    "description": "60 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (50090-1437-0)",
+                    "marketing_start_date": "20141128",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20261231",
+            "openfda": {
+                "manufacturer_name": [
+                    "A-S Medication Solutions"
+                ],
+                "rxcui": [
+                    "1364435",
+                    "1364441",
+                    "1364445",
+                    "1364447"
+                ],
+                "spl_set_id": [
+                    "33a9046a-41cc-46c1-becc-2ff4d7d71538"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "76e8efee-ea1e-460e-8027-443facf02ee9",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "50090-1437_76e8efee-ea1e-460e-8027-443facf02ee9",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "55154-0612",
+            "generic_name": "apixaban",
+            "labeler_name": "Cardinal Health 107, LLC",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "2.5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "55154-0612-0",
+                    "description": "10 BLISTER PACK in 1 BAG (55154-0612-0)  / 1 TABLET, FILM COATED in 1 BLISTER PACK",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "55154-0612-8",
+                    "description": "4140 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (55154-0612-8)",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {
+                "manufacturer_name": [
+                    "Cardinal Health 107, LLC"
+                ],
+                "rxcui": [
+                    "1364435",
+                    "1364441",
+                    "1364445",
+                    "1364447"
+                ],
+                "spl_set_id": [
+                    "a454cd24-0c6d-46e8-b1e4-197388606175"
+                ],
+                "upc": [
+                    "0055154061209",
+                    "0355154061385",
+                    "0355154061286"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "35ab1342-e927-4bd0-9020-628b859dfb38",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "55154-0612_35ab1342-e927-4bd0-9020-628b859dfb38",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "50090-1436",
+            "generic_name": "apixaban",
+            "labeler_name": "A-S Medication Solutions",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "2.5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "50090-1436-0",
+                    "description": "60 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (50090-1436-0)",
+                    "marketing_start_date": "20141128",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20261231",
+            "openfda": {
+                "manufacturer_name": [
+                    "A-S Medication Solutions"
+                ],
+                "rxcui": [
+                    "1364435",
+                    "1364441",
+                    "1364445",
+                    "1364447"
+                ],
+                "spl_set_id": [
+                    "33a9046a-41cc-46c1-becc-2ff4d7d71538"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "76e8efee-ea1e-460e-8027-443facf02ee9",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "50090-1436_76e8efee-ea1e-460e-8027-443facf02ee9",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "55154-0613",
+            "generic_name": "apixaban",
+            "labeler_name": "Cardinal Health 107, LLC",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "55154-0613-0",
+                    "description": "10 BLISTER PACK in 1 BAG (55154-0613-0)  / 1 TABLET, FILM COATED in 1 BLISTER PACK",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "55154-0613-8",
+                    "description": "2040 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (55154-0613-8)",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {
+                "manufacturer_name": [
+                    "Cardinal Health 107, LLC"
+                ],
+                "rxcui": [
+                    "1364435",
+                    "1364441",
+                    "1364445",
+                    "1364447"
+                ],
+                "spl_set_id": [
+                    "a454cd24-0c6d-46e8-b1e4-197388606175"
+                ],
+                "upc": [
+                    "0055154061209",
+                    "0355154061385",
+                    "0355154061286"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "35ab1342-e927-4bd0-9020-628b859dfb38",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "55154-0613_35ab1342-e927-4bd0-9020-628b859dfb38",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "71610-662",
+            "generic_name": "apixaban",
+            "labeler_name": "Aphena Pharma Solutions - Tennessee, LLC",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "71610-662-09",
+                    "description": "9000 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (71610-662-09)",
+                    "marketing_start_date": "20220908",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "71610-662-18",
+                    "description": "3000 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (71610-662-18)",
+                    "marketing_start_date": "20221017",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "71610-662-42",
+                    "description": "1800 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (71610-662-42)",
+                    "marketing_start_date": "20250127",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "71610-662-80",
+                    "description": "180 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (71610-662-80)",
+                    "marketing_start_date": "20230201",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {},
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "5c3dd175-ba67-d91d-e063-6294a90a045d",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "71610-662_5c3dd175-ba67-d91d-e063-6294a90a045d",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "0003-0894",
+            "generic_name": "apixaban",
+            "labeler_name": "E.R. Squibb & Sons, L.L.C.",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "0003-0894-21",
+                    "description": "60 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (0003-0894-21)",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "0003-0894-31",
+                    "description": "10 BLISTER PACK in 1 CARTON (0003-0894-31)  / 10 TABLET, FILM COATED in 1 BLISTER PACK",
+                    "marketing_start_date": "20121228",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "0003-0894-70",
+                    "description": "74 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (0003-0894-70)",
+                    "marketing_start_date": "20170601",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "0003-0894-91",
+                    "description": "1 BLISTER PACK in 1 CARTON (0003-0894-91)  / 14 TABLET, FILM COATED in 1 BLISTER PACK",
+                    "marketing_start_date": "20121228",
+                    "sample": true
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {},
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "663be5ea-b58d-43c9-8138-2d9ed0846308",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "0003-0894_663be5ea-b58d-43c9-8138-2d9ed0846308",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "70518-4462",
+            "generic_name": "apixaban",
+            "labeler_name": "REMEDYREPACK INC.",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "70518-4462-0",
+                    "description": "30 TABLET, FILM COATED in 1 BLISTER PACK (70518-4462-0)",
+                    "marketing_start_date": "20250829",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {},
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "5b37eaab-1b6f-d2c7-e063-6394a90a9ea4",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20250829",
+            "product_id": "70518-4462_5b37eaab-1b6f-d2c7-e063-6394a90a9ea4",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "82804-085",
+            "generic_name": "apixaban",
+            "labeler_name": "Proficient Rx LP",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "82804-085-30",
+                    "description": "30 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (82804-085-30)",
+                    "marketing_start_date": "20240530",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "82804-085-31",
+                    "description": "3 BLISTER PACK in 1 BAG (82804-085-31)  / 10 TABLET, FILM COATED in 1 BLISTER PACK",
+                    "marketing_start_date": "20240627",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {
+                "manufacturer_name": [
+                    "Proficient Rx LP"
+                ],
+                "rxcui": [
+                    "1364445",
+                    "1364447"
+                ],
+                "spl_set_id": [
+                    "33752f5d-2ca7-45c0-8292-b54742219b97"
+                ],
+                "upc": [
+                    "0382804085309"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "1d796c29-7ed2-407f-abdd-7d2cc4c80e83",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "82804-085_1d796c29-7ed2-407f-abdd-7d2cc4c80e83",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "50090-6454",
+            "generic_name": "apixaban",
+            "labeler_name": "A-S Medication Solutions",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "50090-6454-0",
+                    "description": "60 TABLET, FILM COATED in 1 BOTTLE, PLASTIC (50090-6454-0)",
+                    "marketing_start_date": "20230427",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20261231",
+            "openfda": {
+                "manufacturer_name": [
+                    "A-S Medication Solutions"
+                ],
+                "rxcui": [
+                    "1364445",
+                    "1364447"
+                ],
+                "spl_set_id": [
+                    "2f47aa0e-0235-4220-85dd-dfcb8ad0d009"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "d32cc824-92b9-4b7e-969f-181b7f5d815d",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "50090-6454_d32cc824-92b9-4b7e-969f-181b7f5d815d",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "50090-6451",
+            "generic_name": "apixaban",
+            "labeler_name": "A-S Medication Solutions",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "2.5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "50090-6451-0",
+                    "description": "60 TABLET, FILM COATED in 1 BOTTLE (50090-6451-0)",
+                    "marketing_start_date": "20230424",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20261231",
+            "openfda": {
+                "manufacturer_name": [
+                    "A-S Medication Solutions"
+                ],
+                "rxcui": [
+                    "1364435",
+                    "1364441"
+                ],
+                "spl_set_id": [
+                    "fd383ae7-1e34-44ef-b8f1-ca6906dfbcef"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "696a119e-a84a-47ba-97cf-39cd5ea5dcd3",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "50090-6451_696a119e-a84a-47ba-97cf-39cd5ea5dcd3",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "0003-1028",
+            "generic_name": "apixaban",
+            "labeler_name": "E.R. Squibb & Sons, L.L.C.",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": ".5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "0003-1028-12",
+                    "description": "28 PACKET in 1 CARTON (0003-1028-12)  / 4 TABLET, FOR SUSPENSION in 1 PACKET",
+                    "marketing_start_date": "20250915",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "0003-1028-28",
+                    "description": "28 PACKET in 1 CARTON (0003-1028-28)  / 1 TABLET, FOR SUSPENSION in 1 PACKET",
+                    "marketing_start_date": "20250915",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "0003-1028-84",
+                    "description": "28 PACKET in 1 CARTON (0003-1028-84)  / 3 TABLET, FOR SUSPENSION in 1 PACKET",
+                    "marketing_start_date": "20250915",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20271231",
+            "openfda": {},
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FOR SUSPENSION",
+            "spl_id": "663be5ea-b58d-43c9-8138-2d9ed0846308",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20250915",
+            "product_id": "0003-1028_663be5ea-b58d-43c9-8138-2d9ed0846308",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        },
+        {
+            "product_ndc": "71610-811",
+            "generic_name": "apixaban",
+            "labeler_name": "Aphena Pharma Solutions - Tennessee, LLC",
+            "brand_name": "ELIQUIS",
+            "active_ingredients": [
+                {
+                    "name": "APIXABAN",
+                    "strength": "2.5 mg/1"
+                }
+            ],
+            "finished": true,
+            "packaging": [
+                {
+                    "package_ndc": "71610-811-42",
+                    "description": "1800 TABLET, FILM COATED in 1 BOTTLE (71610-811-42)",
+                    "marketing_start_date": "20250127",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "71610-811-80",
+                    "description": "180 TABLET, FILM COATED in 1 BOTTLE (71610-811-80)",
+                    "marketing_start_date": "20250127",
+                    "sample": false
+                },
+                {
+                    "package_ndc": "71610-811-83",
+                    "description": "3600 TABLET, FILM COATED in 1 BOTTLE (71610-811-83)",
+                    "marketing_start_date": "20240328",
+                    "sample": false
+                }
+            ],
+            "listing_expiration_date": "20261231",
+            "openfda": {
+                "manufacturer_name": [
+                    "Aphena Pharma Solutions - Tennessee, LLC"
+                ],
+                "rxcui": [
+                    "1364435",
+                    "1364441"
+                ],
+                "spl_set_id": [
+                    "1523ab32-2c2c-6501-e063-6394a90aa0b3"
+                ],
+                "nui": [
+                    "N0000175637",
+                    "N0000175635"
+                ],
+                "pharm_class_epc": [
+                    "Factor Xa Inhibitor [EPC]"
+                ],
+                "pharm_class_moa": [
+                    "Factor Xa Inhibitors [MoA]"
+                ],
+                "unii": [
+                    "3Z9Y7UWC1J"
+                ]
+            },
+            "marketing_category": "NDA",
+            "dosage_form": "TABLET, FILM COATED",
+            "spl_id": "2d3e63c1-62ea-0c12-e063-6394a90aa931",
+            "product_type": "HUMAN PRESCRIPTION DRUG",
+            "route": [
+                "ORAL"
+            ],
+            "marketing_start_date": "20121228",
+            "product_id": "71610-811_2d3e63c1-62ea-0c12-e063-6394a90aa931",
+            "application_number": "NDA202155",
+            "brand_name_base": "ELIQUIS",
+            "pharm_class": [
+                "Factor Xa Inhibitor [EPC]",
+                "Factor Xa Inhibitors [MoA]"
+            ]
+        }
+    ]
+}

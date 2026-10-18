@@ -149,6 +149,19 @@ def _tool_title(
 
         return f"{title}: {profile_description}"
 
+    if tool_name == "find_related_drugs":
+        product_key = _display_text(arguments.get("product_key"))
+
+        if product_key is None:
+            return title
+
+        product_name = (product_names or {}).get(product_key)
+        product_description = " — ".join(
+            part for part in (product_name, product_key) if part
+        )
+
+        return f"{title}: {product_description}"
+
     if tool_name == "find_documented_interactions":
         ingredient_keys = arguments.get("ingredient_keys")
 
@@ -235,6 +248,29 @@ def _format_drug_search_result(data: Mapping[str, Any] | list[Any]) -> str:
     return "\n".join(result_lines)
 
 
+def _format_related_drugs_result(data: Mapping[str, Any]) -> str:
+    products = data.get("products", [])
+
+    if not isinstance(products, (list, tuple)):
+        products = []
+
+    count = len(products)
+
+    if count == 0:
+        return "Related drugs found: 0"
+
+    result_lines = [f"Related drugs found: {count}"]
+    result_lines.extend(
+        f"- {_format_drug(product)}"
+        for product in products[:MAX_SEARCH_RESULTS_SHOWN]
+    )
+
+    if count > MAX_SEARCH_RESULTS_SHOWN:
+        result_lines.append("...")
+
+    return "\n".join(result_lines)
+
+
 def _format_composition(composition: Any) -> str:
     if not isinstance(composition, Mapping):
         return str(composition)
@@ -301,8 +337,7 @@ def format_result(tool_name: str, output: Any) -> str:
         return _format_drug_profile(data)
 
     if tool_name == "find_related_drugs":
-        count = _count(data, "products")
-        return f"Related drugs found: {count}"
+        return _format_related_drugs_result(data)
 
     if tool_name == "find_documented_interactions":
         count = _count(data, "findings")
@@ -317,6 +352,8 @@ class LiveToolPresenter:
     tool_names: dict[str, str] = field(default_factory=dict)
     product_names: dict[str, str] = field(default_factory=dict)
     ingredient_names: dict[str, str] = field(default_factory=dict)
+    seen_call_ids: set[str] = field(default_factory=set)
+    completed_call_ids: set[str] = field(default_factory=set)
 
     async def on_tool_called(self, item: ToolCallItem) -> None:
         call_id = item.call_id
@@ -324,6 +361,10 @@ class LiveToolPresenter:
         if not call_id:
             return
 
+        if call_id in self.seen_call_ids:
+            return
+
+        self.seen_call_ids.add(call_id)
         tool_name = item.tool_name or "unknown_tool"
         arguments = _format_arguments(item.raw_item)
 
@@ -361,6 +402,9 @@ class LiveToolPresenter:
         if not call_id:
             return
 
+        if call_id in self.completed_call_ids:
+            return
+
         step = self.steps.pop(call_id, None)
         tool_name = self.tool_names.pop(call_id, None)
 
@@ -371,6 +415,7 @@ class LiveToolPresenter:
             )
             return
 
+        self.completed_call_ids.add(call_id)
         result_summary = format_result(
             tool_name=tool_name,
             output=item.output,
@@ -426,3 +471,12 @@ class LiveToolPresenter:
         step.output = result_summary
 
         await step.update()
+
+    async def reconcile(self, items: list[Any]) -> None:
+        """Present tool items omitted from the SDK's live event stream."""
+
+        for item in items:
+            if isinstance(item, ToolCallItem):
+                await self.on_tool_called(item)
+            elif isinstance(item, ToolCallOutputItem):
+                await self.on_tool_output(item)

@@ -117,6 +117,11 @@ async def on_message(message: cl.Message) -> None:
             ):
                 await presenter.on_tool_output(event.item)
 
+        # Some Chat Completions-compatible providers intermittently omit tool
+        # items from the high-level stream even though the SDK executes and
+        # records them. Reconcile the completed run so the UI never loses them.
+        await presenter.reconcile(result.new_items)
+
         final_output = result.final_output
 
         if final_output is None:

@@ -1,6 +1,10 @@
 import json
+from types import SimpleNamespace
+
+import pytest
 
 from pharmgraph_ai.ui.tool_presenter import (
+    LiveToolPresenter,
     _safe_step_name,
     _tool_title,
     format_result,
@@ -70,6 +74,103 @@ def test_empty_search_result_has_no_product_list():
     assert format_result("search_drugs", "[]") == "Drugs found: 0"
 
 
+@pytest.mark.asyncio
+async def test_tool_step_is_collapsed_and_hides_arguments(monkeypatch):
+    created_steps = []
+
+    class FakeStep:
+        def __init__(self, **kwargs):
+            self.kwargs = kwargs
+            self.input = None
+            self.output = None
+            self.sent = False
+            created_steps.append(self)
+
+        async def send(self):
+            self.sent = True
+
+    monkeypatch.setattr(
+        "pharmgraph_ai.ui.tool_presenter.cl.Step",
+        FakeStep,
+    )
+
+    presenter = LiveToolPresenter()
+    item = SimpleNamespace(
+        call_id="call-1",
+        tool_name="search_drugs",
+        raw_item={
+            "arguments": json.dumps(
+                {
+                    "name": "Eliquis",
+                    "dosage_form": None,
+                    "limit": 10,
+                }
+            )
+        },
+    )
+
+    await presenter.on_tool_called(item)
+
+    assert len(created_steps) == 1
+    step = created_steps[0]
+    assert step.kwargs["show_input"] is False
+    assert step.kwargs["default_open"] is False
+    assert step.input is None
+    assert step.output == "Investigation in progress..."
+    assert step.sent is True
+
+
+@pytest.mark.asyncio
+async def test_reconcile_does_not_repeat_streamed_tool_items(monkeypatch):
+    from agents.items import ToolCallItem, ToolCallOutputItem
+
+    created_steps = []
+
+    class FakeStep:
+        def __init__(self, **kwargs):
+            self.input = None
+            self.output = None
+            self.update_count = 0
+            created_steps.append(self)
+
+        async def send(self):
+            pass
+
+        async def update(self):
+            self.update_count += 1
+
+    monkeypatch.setattr(
+        "pharmgraph_ai.ui.tool_presenter.cl.Step",
+        FakeStep,
+    )
+
+    class AgentStub:
+        pass
+
+    agent = AgentStub()
+    call = ToolCallItem(
+        agent=agent,
+        raw_item={
+            "call_id": "call-1",
+            "name": "search_drugs",
+            "arguments": json.dumps({"name": "Eliquis"}),
+        },
+    )
+    output = ToolCallOutputItem(
+        agent=agent,
+        raw_item={"call_id": "call-1"},
+        output="[]",
+    )
+    presenter = LiveToolPresenter()
+
+    await presenter.reconcile([call, output])
+    await presenter.reconcile([call, output])
+
+    assert len(created_steps) == 1
+    assert created_steps[0].update_count == 1
+    assert created_steps[0].output == "Drugs found: 0"
+
+
 def test_profile_title_uses_known_product_name_and_key():
     raw_item = {"arguments": json.dumps({"product_key": "00078-0699-44"})}
 
@@ -81,6 +182,49 @@ def test_profile_title_uses_known_product_name_and_key():
         )
         == "Retrieving drug profile: Eliquis — 00078-0699-44"
     )
+
+
+def test_related_drugs_title_uses_known_product_name_and_key():
+    raw_item = {"arguments": json.dumps({"product_key": "00078-0699-44"})}
+
+    assert (
+        _tool_title(
+            "find_related_drugs",
+            raw_item,
+            {"00078-0699-44": "Eliquis"},
+        )
+        == "Investigating related drugs: Eliquis — 00078-0699-44"
+    )
+
+
+def test_related_drugs_result_lists_first_three_products():
+    result = format_result(
+        "find_related_drugs",
+        json.dumps(
+            {
+                "status": "found",
+                "source_product_key": "00078-0699-44",
+                "products": [
+                    {
+                        "key": f"ndc-{index}",
+                        "name": f"Related drug {index}",
+                        "generic_name": "apixaban",
+                        "dosage_form": "TABLET",
+                    }
+                    for index in range(1, 5)
+                ],
+            }
+        ),
+    )
+
+    assert result == (
+        "Related drugs found: 4\n"
+        "- Related drug 1 — TABLET, ndc-1\n"
+        "- Related drug 2 — TABLET, ndc-2\n"
+        "- Related drug 3 — TABLET, ndc-3\n"
+        "..."
+    )
+    assert "Related drug 4" not in result
 
 
 def test_interaction_title_uses_known_ingredient_names():

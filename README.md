@@ -14,7 +14,8 @@ Built for [Graph Hacks: Context for AI Agents](https://www.wemakedevs.org/hackat
 | --- | --- |
 | Track | **Agents That Act on Connected Data** |
 | Source code | [github.com/decembrin/pharmgraph-ai](https://github.com/decembrin/pharmgraph-ai) |
-| Demo video | Link will be added before the final submission |
+| Demo video | [Watch on YouTube](https://www.youtube.com/watch?v=_k-gre-7VOo) |
+| Demo video model | **Qwen/Qwen3.8-27B-FP8** |
 | Live deployment | Not currently published; complete local setup is provided below |
 | Primary graph database | **FalkorDB** |
 | Data | Public openFDA drug NDC and label records; a reproducible seed graph is included |
@@ -63,6 +64,8 @@ After starting the stack, use these questions in order:
    The agent resolves both products to ingredients and follows the interaction to supporting evidence and its source FDA label.
 
 During each step, Chainlit exposes the graph tools being called. The final answer must preserve source conditions and limitations; an empty result is reported as “not established by the available evidence,” never as proof of safety.
+
+The demo video was recorded with **Qwen/Qwen3.8-27B-FP8** as the tool-calling language model. The application is provider-independent and can use another Chat Completions-compatible model through the environment configuration.
 
 ## What it does
 
@@ -115,7 +118,7 @@ The counts describe demo coverage, not clinical completeness. The tests verify g
 | Autonomous tool selection | Real; a tool-capable model chooses among four bounded application tools |
 | Graph visualization | FalkorDB Browser is available locally; Chainlit shows tool execution rather than a custom graph canvas |
 | Medical coverage | Limited demonstration subset; not comprehensive and not for clinical decisions |
-| Demo video | Pending; the final link will be added by the participant |
+| Demo video | Published on [YouTube](https://www.youtube.com/watch?v=_k-gre-7VOo) |
 
 ## How the agent works
 
@@ -286,7 +289,9 @@ OPENAI_TIMEOUT=120
 docker compose up --build
 ```
 
-The first build installs the locked dependencies and can take a few minutes. The FalkorDB image automatically restores the bundled demo graph from `data/falkordb-seed/dump.rdb`; no separate import is required for the demo.
+The first build installs the locked dependencies and can take a few minutes.
+
+> **The demo data is ready immediately after startup.** The FalkorDB image automatically restores the bundled graph from `data/falkordb-seed/dump.rdb`, so there is no need to run an import, seed, or ingestion command. Once the services are healthy, open the application and start asking questions.
 
 Open:
 
@@ -391,7 +396,7 @@ Participant review remains essential. Runtime medical claims must be grounded in
 - [x] Entered track is named
 - [x] AI-assistant use is disclosed
 - [x] Local demo path is reproducible from the bundled graph seed
-- [ ] Add the final demo-video URL to the submission
+- [x] Demo video: [watch on YouTube](https://www.youtube.com/watch?v=_k-gre-7VOo)
 - [ ] Add a live deployment URL if one is published (optional when complete local setup is provided)
 
 See the official [Graph Hacks rules](https://www.wemakedevs.org/hackathons/falkordb/rules) and [WeMakeDevs Code of Conduct](https://www.wemakedevs.org/coc).

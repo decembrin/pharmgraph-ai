@@ -2,8 +2,10 @@ services:
   dev:
     build:
       context: .
-      dockerfile: .devcontainer/Dockerfile
+      dockerfile: ./docker/dev/Dockerfile
     working_dir: /workspace/src
+    ports:
+      - "127.0.0.1:8000:8000"
     volumes:
       - .:/workspace:cached
     env_file:
@@ -24,19 +26,16 @@ services:
       - "8000"
 
   falkordb:
-    image: falkordb/falkordb:latest
+    build:
+      context: .
+      dockerfile: ./docker/falkordb/Dockerfile
     ports:
       - "127.0.0.1:6379:6379"
       - "127.0.0.1:3000:3000"
     environment:
-      REDIS_ARGS: "--appendonly yes"
-    volumes:
-      - falkordb_data:/data
+      REDIS_ARGS: "--appendonly no --save 60 1"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 3s
       retries: 10
-
-volumes:
-  falkordb_data:
